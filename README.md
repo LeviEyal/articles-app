@@ -41,3 +41,4 @@ npm run dev
 ![image](https://github.com/LeviEyal/articles-app/assets/48846533/4c07fb25-047c-49c6-8703-bc1ba2e29167)
 ![image](https://github.com/LeviEyal/articles-app/assets/48846533/44b8900f-4e3a-416f-a73d-da1f59aaadc3)
 ![image](https://github.com/LeviEyal/articles-app/assets/48846533/c9836674-f8c0-4e0c-a168-7ed5888eeb9e)
+![image](https://github.com/LeviEyal/articles-app/assets/48846533/d1fe8f44-69ee-4f0a-8bef-3e1411f94886)
