@@ -68,7 +68,7 @@ export const ArticleView = ({
   ];
 
   return (
-    <div className="flex flex-col gap-5 h-full text-lg">
+    <div className="flex flex-col gap-5 text-lg">
       <div className="flex justify-between divide--2">
         <h1 className="text-3xl">{article?.title}</h1>
         <ActionsBar actions={actions} />

@@ -52,7 +52,7 @@ export const ArticlePage = () => {
   }
 
   return (
-    <div className="px-24 py-10 bg-slate-200 h-full">
+    <div className="px-24 py-10">
       <Paper>
         {editMode ? (
           <ArticleForm

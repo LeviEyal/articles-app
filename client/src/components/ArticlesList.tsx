@@ -64,7 +64,7 @@ export const ArticlesList = () => {
   });
 
   return (
-    <div className="h-full p-10 bg-slate-200">
+    <div className="p-10">
       <div className="flex justify-between items-center">
         <NewArticleModal />
       </div>

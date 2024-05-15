@@ -6,7 +6,6 @@ import { createCategory } from "../api/articlesService";
 /**
  * Renders a modal for creating a new category.
  */
-
 export const NewCategoryModal = () => {
   const queryClient = useQueryClient();
   const { mutate } = useMutation({
@@ -23,9 +22,9 @@ export const NewCategoryModal = () => {
     e.preventDefault();
 
     const title = titleRef.current?.value;
-    const description = descriptionRef.current?.value;
+    const description = descriptionRef.current?.value || "";
 
-    if (!title || !description) {
+    if (!title) {
       return;
     }
 

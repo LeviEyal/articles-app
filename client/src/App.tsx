@@ -73,7 +73,7 @@ export const AppLayout = () => {
         )}
         <NewCategoryModal />
       </menu>
-      <main className="flex-1">
+      <main className="flex-1 bg-slate-200">
         <Header />
         <Outlet />
       </main>
