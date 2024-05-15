@@ -1,4 +1,23 @@
-## Run Instructions
+# Articles App
+This is a simple articles app that allows users to create, read, update and delete articles.
+
+# Development Environment
+### Server
+- Node.js
+- Fastify - Web framework
+- Prisma ORM - Database toolkit
+- SQLite - Database
+- Swagger - API documentation
+
+### Client
+- React.js
+- Tailwind CSS - CSS framework
+- Axios - HTTP client
+- Tanstack Query - Data fetching library
+- React Router - Routing library
+- Vite - Build tool
+
+# Run Instructions
 1. Clone the repository
 2. Run the following command in the terminal
 ```bash
