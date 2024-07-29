@@ -2,6 +2,8 @@ import { FaEdit } from "react-icons/fa";
 import { Article } from "../types/types";
 import { MdDelete } from "react-icons/md";
 import { Tag } from "./ui/Tag";
+import MDEditor from "@uiw/react-md-editor";
+import { Code } from "./markdown/Code";
 
 interface Action {
   title: string;
@@ -75,8 +77,16 @@ export const ArticleView = ({
       </div>
       <div className="h-[1px] bg-gray-400"></div>
       <p className="text-gray-500">{article?.description}</p>
-      <div className="resize-none p-2 h-full w-full focus:outline-none text-gray-900 bg-white rounded-lg whitespace-pre-lin whitespace-pre-line text-pretty">
-        {article?.body}
+      <div className="resize-none p-2 h-full w-full focus:outline-none text-gray-900 bg-white rounded-lg whitespace-pre-line text-pretty">
+        <MDEditor.Markdown
+          source={article?.body || ""}
+          style={{ whiteSpace: "pre-wrap" }}
+          components={
+            {
+              code: Code,
+            } as any
+          }
+        />
       </div>
       {article?.tags && article.tags.length > 0 && (
         <div className="flex gap-2">

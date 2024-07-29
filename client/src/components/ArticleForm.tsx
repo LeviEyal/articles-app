@@ -3,6 +3,10 @@ import { Article } from "../types/types";
 import { useEffect, useRef, useState } from "react";
 import { useCategories } from "../hooks/useCategories";
 import { useParams } from "react-router-dom";
+import MDEditor from "@uiw/react-md-editor";
+import { Code } from "./markdown/Code";
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
 
 /**
  * Represents a form for creating or editing an article.
@@ -27,11 +31,17 @@ export const ArticleForm = ({
   const { categories } = useCategories();
   const titleRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
-  const bodyRef = useRef<HTMLTextAreaElement>(null);
   const categoryIdRef = useRef<HTMLSelectElement>(null);
   const [tags, setTags] = useState<string[]>(
     article.tags.map((tag) => tag.title)
   );
+  const [value, setValue] = useState(article.body || "");
+  const rtlValue = `<div align="right" dir="rtl">
+  
+  ${value}
+  
+  </div>`;
+
   const onChange = (tags: string[]) => {
     setTags(tags);
   };
@@ -42,7 +52,7 @@ export const ArticleForm = ({
       ...article,
       title: titleRef.current?.value || "",
       description: descriptionRef.current?.value || "",
-      body: bodyRef.current?.value,
+      body: value.startsWith("<div") ? value: rtlValue,
       categoryId: categoryIdRef.current?.value || "",
       tags: tags.map((tag) => ({ title: tag, id: tag, description: "" })),
     });
@@ -54,9 +64,6 @@ export const ArticleForm = ({
     }
     if (descriptionRef.current) {
       descriptionRef.current.value = article.description;
-    }
-    if (bodyRef.current) {
-      bodyRef.current.value = article.body || "";
     }
     if (categoryIdRef.current) {
       categoryIdRef.current.value = article.categoryId;
@@ -90,10 +97,15 @@ export const ArticleForm = ({
         <label htmlFor="body" className="block">
           Body
         </label>
-        <textarea
+        <MDEditor
           id="body"
-          ref={bodyRef}
-          className="w-full border border-gray-300 rounded h-64"
+          value={value}
+          onChange={setValue}
+          previewOptions={{
+            components: {
+              code: Code,
+            },
+          }}
         />
       </div>
       <div className="mb-4">

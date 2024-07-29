@@ -1,4 +1,6 @@
 import "./App.css";
+import logo from '../public/vite.svg';
+
 import { ArticlesList } from "./components/ArticlesList";
 import {
   Link,
@@ -49,9 +51,9 @@ export const AppLayout = () => {
     <div className="flex">
       <menu className="w-72 h-screen bg-gray-600 text-white sticky top-0 text-xl flex flex-col items-center">
         <img
-          src="https://fire-arc.com/wp-content/uploads/2022/06/FireArc-Logo-White.png"
-          width={180}
-          className="m-3"
+          src={logo}
+          width={70}
+          className="m-5"
           alt="Logo"
         />
         {categories && (
